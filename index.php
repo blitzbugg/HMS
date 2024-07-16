@@ -18,10 +18,10 @@ include("include/header.php");
                 <div class="col-md-3 mx-1 shadow">
                     <img src="./img/info.png" alt="" srcset="" width=100% height=190>
 
-                    <h5 class="text-center">Click on the button for more information</h5>
+                    <h5 class="text-center">Click on the button for more information</h5><br>
                     <div class="text-center">
                     <a href="">
-                        <button class="btn btn-info p-3 text-white">More Information</button>
+                        <button class="btn btn-info p-2 text-white">More Information</button>
                     </a>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ include("include/header.php");
                     <h5 class="text-center">We will take care of you</h5>
                     <div class="text-center">
                     <a href="">
-                        <button class="btn btn-success p-3">Create Account!</button>
+                        <button class="btn btn-success p-2">Create Account!</button>
                     </a>
                     </div>
                 </div>
@@ -41,7 +41,7 @@ include("include/header.php");
                     <h5 class="text-center">We are hiring doctors</h5>
                     <div class="text-center">
                     <a href="">
-                        <button class="btn btn-success p-3">Apply Now!</button>
+                        <button class="btn btn-success p-2">Apply Now!</button>
                     </a>
                     </div>
                     
