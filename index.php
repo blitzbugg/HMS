@@ -16,12 +16,12 @@ include("include/header.php");
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-3 mx-1 shadow">
-                    <img src="./img/info.png" alt="" srcset="" width=100% height=190>
+                    <img src="./img/info.jpg" alt="" srcset="" width=100% height=250>
 
-                    <h5 class="text-center">Click on the button for more information</h5><br>
-                    <div class="text-center">
+                    <h5 class="text-center">Click here for more information</h5>
+                    <div class="text-center md-2">
                     <a href="">
-                        <button class="btn btn-info p-2 text-white">More Information</button>
+                        <button class="btn btn-success p-2 text-white">More Information</button>
                     </a>
                     </div>
                 </div>
