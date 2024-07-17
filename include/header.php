@@ -13,15 +13,15 @@
 <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-info bg-primary">
     <div class="container-fluid">
-    <a class="navbar-brand text-white fs-4 fw-bold" href="#">
+    <a class="navbar-brand text-white fs-4 fw-bold" href="./index.php">
       <img src="https://t4.ftcdn.net/jpg/05/75/22/77/240_F_575227735_ZjAc0cnqvCwzsfmsuEuKUW847J0JIGXU.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
       Hospital Management System
     </a>
     </div>
 
         <ul class="navbar-nav me-4"> 
+            <li class="nav-item ms-3"><a href="adminlogin.php" class="nav-link text-white fw-bold">Admin</a></li>
             <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">Doctor</a></li>
-            <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">Admin</a></li>
             <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">Patient</a></li>
         </ul>
     </nav>
