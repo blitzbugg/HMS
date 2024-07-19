@@ -19,9 +19,21 @@
     </div>
 
         <ul class="navbar-nav me-4"> 
-            <li class="nav-item ms-3"><a href="adminlogin.php" class="nav-link text-white fw-bold">Admin</a></li>
+            <?php
+                if(isset($_SESSION['admin'])){
+
+                    $user = $_SESSION['admin'];
+                        echo '
+            <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">'.$user.'</a></li>
+            <li class="nav-item ms-3"><a href="logout" class="nav-link text-white fw-bold">Logout</a></li>';
+                }
+                else{
+                    echo '
+                    <li class="nav-item ms-3"><a href="adminlogin.php" class="nav-link text-white fw-bold">Admin</a></li>
             <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">Doctor</a></li>
-            <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">Patient</a></li>
+            <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">Patient</a></li>';
+                }
+            ?>
         </ul>
     </nav>
 </body>
