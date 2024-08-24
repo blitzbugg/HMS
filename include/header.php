@@ -25,7 +25,7 @@
                     $user = $_SESSION['admin'];
                         echo '
             <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">'.$user.'</a></li>
-            <li class="nav-item ms-3"><a href="logout" class="nav-link text-white fw-bold">Logout</a></li>';
+            <li class="nav-item ms-3"><a href="logout.php" class="nav-link text-white fw-bold">Logout</a></li>';
                 }
                 else{
                     echo '
