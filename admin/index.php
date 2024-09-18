@@ -40,7 +40,7 @@ session_start();
                                             <h5 class="text-white">Admin</h5>
                                         </div>
                                         <div class="col-md-3">
-                                            <a href=""><i class="fa-solid fa-user-gear fa-2xl p-5" style="color: #ffffff;"></i></a>
+                                            <a href="admin.php"><i class="fa-solid fa-user-gear fa-2xl p-5" style="color: #ffffff;"></i></a>
                                         </div>
                                     </div>
                                 </div>
