@@ -94,12 +94,17 @@ session_start();
 
                                     if(count($error) == 0){
                                         $sql = "INSERT INTO admin(username,password,profile) VALUES ('$username','$password','$image')";
+                                        $result = mysqli_query($connect,$sql);
+
+                                        if($result){
+                                            move_uploaded_file($_FILES['img']['tmp_name'], "img/$image");
+                                        }
                                     }
                                 }
 
                         ?>
                             <h5 class="text-center">Add admin</h5>
-                            <form action="" method="post">
+                            <form action="" method="post" enctype='multipart/form-data'>
                                 <div class="form-group">
                                     <label for="username">Username</label>
                                     <input type="text" name="username" class="form-control" id="username" autocomplete="off">
@@ -109,7 +114,7 @@ session_start();
                                     <input type="password" name="password" class="form-control" id="password">
                                 </div>
                                 <div class="form-group">
-                                    <label for="" >Add Image Picture</label>
+                                    <label for="" >Add Profile Picture</label>
                                     <input type="file" name="img" id="" class="form-control">
                                 </div><br>
                                 <input type="submit" name="add" value="Add New Admin" class="btn btn-success">
