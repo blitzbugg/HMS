@@ -54,7 +54,7 @@ session_start();
                                     <td>$id</td>
                                     <td>$username</td>
                                     <td>
-                                        <button id='$id' class='btn btn-danger'>Remove</button>
+                                        <a href='admin.php?id=$id'><button id='$id' class='btn btn-danger'>Remove</button></a>
                                     </td>";
                                 }
 
@@ -64,11 +64,15 @@ session_start();
                             </table>";
 
                             echo $output;
+                            // Delete query
+                            if(isset($_GET['id'])){
+                                $id = $_GET['id'];
+
+                                $dquery = "DELETE FROM admin WHERE id='$id'";
+                                mysqli_query($connect,$dquery);
+                            }
                             ?>
-
-                            
-
-                               
+          
                   
                         </div>
                         <div class="col-md-6">
@@ -83,13 +87,13 @@ session_start();
                                     $error = array();
 
                                     if(empty($username)){
-                                        $error[''] = "Username is required";
+                                        $error['u'] = "Username is required";
                                     }
                                     else if(empty($password)){
-                                        $error[''] = "Password is required";
+                                        $error['u'] = "Password is required";
                                     }
                                     else if(empty($image)){
-                                            $error[''] = "Image is required";
+                                            $error['u'] = "Image is required";
                                     }
 
                                     if(count($error) == 0){
@@ -102,9 +106,22 @@ session_start();
                                     }
                                 }
 
+                                if(isset($error['u'])){
+                                    $er = $error['u'];
+                                    $show = "<h5 class='text-center alert alert-danger'>$er</h5>";
+                                }   
+                                else{
+                                    $show = "";
+                                }
+
                         ?>
                             <h5 class="text-center">Add admin</h5>
                             <form action="" method="post" enctype='multipart/form-data'>
+                                <div>
+                                    <?php
+                                    echo $show;
+                                    ?>
+                                </div>
                                 <div class="form-group">
                                     <label for="username">Username</label>
                                     <input type="text" name="username" class="form-control" id="username" autocomplete="off">
