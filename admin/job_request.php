@@ -47,6 +47,36 @@ session_start();
 
         // Call the function to load data when the page is ready
         show();
+
+        $(document).on('click', '.approve', function(){
+
+            var id = $(this).attr("id");
+
+
+            $.ajax({
+                url:"ajax_approve.php",
+                method:"POST",
+                data:{id:id},
+                success:function(data){
+                    show();
+                }
+            });
+        });
+
+        $(document).on('click', '.reject', function(){
+
+            var id = $(this).attr("id");
+
+
+            $.ajax({
+                url:"ajax_reject.php",
+                method:"POST",
+                data:{id:id},
+                success:function(data){
+                    show();
+                }
+            });
+        });
     });
     </script>
 </body>
