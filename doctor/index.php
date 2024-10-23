@@ -51,7 +51,7 @@ session_start();
                                 <h5>My Profile</h5>
                             </div>
                             <div>
-                                <a href="#"><i class="fas fa-user-circle dashboard-icon"></i></a>
+                                <a href="profile.php"><i class="fas fa-user-circle dashboard-icon"></i></a>
                             </div>
                         </div>
 
