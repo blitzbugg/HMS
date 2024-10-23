@@ -29,9 +29,15 @@
                         echo '
             <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">'.$user.'</a></li>
             <li class="nav-item ms-3"><a href="logout.php" class="nav-link text-white fw-bold">Logout</a></li>';
+                }else if(isset($_SESSION['doctor'])){
+                    $user = $_SESSION['doctor'];
+                        echo '
+            <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">'.$user.'</a></li>
+            <li class="nav-item ms-3"><a href="logout.php" class="nav-link text-white fw-bold">Logout</a></li>';
                 }
                 else{
                     echo '
+                    <li class="nav-item ms-3"><a href="index.php" class="nav-link text-white fw-bold">Home</a></li>
                     <li class="nav-item ms-3"><a href="adminlogin.php" class="nav-link text-white fw-bold">Admin</a></li>
             <li class="nav-item ms-3"><a href="doctorlogin.php" class="nav-link text-white fw-bold">Doctor</a></li>
             <li class="nav-item ms-3"><a href="" class="nav-link text-white fw-bold">Patient</a></li>';

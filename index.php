@@ -40,7 +40,7 @@ include("include/header.php");
 
                     <h5 class="text-center">We are hiring doctors</h5>
                     <div class="text-center">
-                    <a href="">
+                    <a href="apply.php">
                         <button class="btn btn-success p-2">Apply Now!</button>
                     </a>
                     </div>
