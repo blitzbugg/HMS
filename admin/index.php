@@ -100,12 +100,18 @@ session_start();
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h5 class="my-2 fs-1">0</h5>
+                                    <?php
+
+                                        $job = mysqli_query($connect, "SELECT * FROM doctors WHERE status='pending'");
+                                        $num1 = mysqli_num_rows ($job);
+
+                                    ?>
+                                        <h5 class="my-2 fs-1"><?php echo $num1; ?></h5>
                                         <h5>Total</h5>
                                         <h5>Job Request</h5>
                                     </div>
                                     <div class="col-md-4 text-center">
-                                        <a href=""><i class="fa-solid fa-book-open-reader fa-2xl p-4" style="color: #ffffff;"></i></a>
+                                        <a href="job_request.php"><i class="fa-solid fa-book-open-reader fa-2xl p-4" style="color: #ffffff;"></i></a>
                                     </div>
                                 </div>
                             </div>
