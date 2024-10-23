@@ -12,7 +12,7 @@
         <a href="index.php" class="list-group-item list-group-item-action bg-secondary text-center text-white">Dashboard</a>
         <a href="profile.php" class="list-group-item list-group-item-action bg-secondary text-center text-white">Profile</a>
         <a href="" class="list-group-item list-group-item-action bg-secondary text-center text-white">Administrators</a>
-        <a href="" class="list-group-item list-group-item-action bg-secondary text-center text-white">Doctors</a>
+        <a href="doctor.php" class="list-group-item list-group-item-action bg-secondary text-center text-white">Doctors</a>
         <a href="" class="list-group-item list-group-item-action bg-secondary text-center text-white">Patients</a>
      </div>
      <!-- Ends -->

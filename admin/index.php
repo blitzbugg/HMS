@@ -52,12 +52,16 @@ session_start();
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h5 class="my-2 fs-1">0</h5>
+                                        <?php
+                                        $doctor = mysqli_query($connect,"SELECT * FROM doctors WHERE status='Approved'");
+                                        $num2 = mysqli_num_rows($doctor);
+                                        ?>
+                                        <h5 class="my-2 fs-1"><?php echo $num2; ?></h5>
                                         <h5>Total</h5>
                                         <h5>Doctor</h5>
                                     </div>
                                     <div class="col-md-4 text-center">
-                                        <a href=""><i class="fa-solid fa-user-doctor fa-2xl p-4" style="color: #ffffff;"></i></a>
+                                        <a href="doctor.php"><i class="fa-solid fa-user-doctor fa-2xl p-4" style="color: #ffffff;"></i></a>
                                     </div>
                                 </div>
                             </div>
