@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include("include/connection.php");
 
 $show = "";
@@ -35,7 +35,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['doctor'] = $uname;
                 echo "<script>alert('done')</script>";
                 // Redirect to doctor's dashboard or any other page
-                // header("Location: dashboard.php");
+                header("Location: doctor/index.php");
             }
         } else {
             $error['login'] = "Invalid Account";
