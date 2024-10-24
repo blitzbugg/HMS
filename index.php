@@ -38,10 +38,10 @@ include("include/header.php");
                 <div class="col-md-4 mx-1 shadow">
                     <img src="./img/doctor.jpg" alt="" srcset="" width=100% height=250>
 
-                    <h5 class="text-center">We are hiring doctors</h5>
+                    <h5 class="text-center">Doctor's SignUp</h5>
                     <div class="text-center">
                     <a href="apply.php">
-                        <button class="btn btn-success p-2">Apply Now!</button>
+                        <button class="btn btn-success p-2">SignUp Now!</button>
                     </a>
                     </div>
                     

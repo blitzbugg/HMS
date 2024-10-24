@@ -112,7 +112,7 @@ session_start();
                                     ?>
                                         <h5 class="my-2 fs-1"><?php echo $num1; ?></h5>
                                         <h5>Total</h5>
-                                        <h5>Job Request</h5>
+                                        <h5>Signup Request</h5>
                                     </div>
                                     <div class="col-md-4 text-center">
                                         <a href="job_request.php"><i class="fa-solid fa-book-open-reader fa-2xl p-4" style="color: #ffffff;"></i></a>

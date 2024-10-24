@@ -80,7 +80,7 @@ if (isset($_POST['login'])) {
                         </div>
                         <input type="submit" name="login" class="btn btn-success" value="Login">
 
-                        <p>I don't have any account <a href="apply.php">Apply now</a></p>
+                        <p>I don't have any account <a href="apply.php">Signup</a></p>
                     </form>
                 </div>
                 <div class="col-md-3"></div>
