@@ -41,7 +41,7 @@ session_start();
                                         <h5>Admin</h5>
                                     </div>
                                     <div class="col-md-4 text-center">
-                                        <a href="admin.php"><i class="fa-solid fa-user-gear fa-2xl p-4" style="color: #ffffff;"></i></a>
+                                        <a href="admin.php"><i class="fa-solid fa-hospital-user fa-2xl p-4" style="color: #ffffff;"></i></a>
                                     </div>
                                 </div>
                             </div>
