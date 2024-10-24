@@ -59,11 +59,11 @@ if (isset($_POST['login'])) {
 </head>
 <body style="background-image: url(img/admin-back.jpg); background-size: cover; background-repeat: no-repeat;">
     <?php include("include/header.php"); ?>
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-6 p-5 bg-dark-subtle mt-5 rounded-4">
+                <div class="col-md-6 p-5 bg-light mt-5 rounded-4">
                     <h5 class="text-center my-2">Doctors Login</h5>
                     <div>
                         <?php echo $show; ?>
