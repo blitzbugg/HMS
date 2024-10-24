@@ -37,7 +37,7 @@ if (isset($_POST['apply'])) {
     }
 
     if (count($error) == 0) {
-        $query = "INSERT INTO doctors(firstname, surname, uname, email, gender, phone, country, password, salary, data_reg, status, profile) 
+        $query = "INSERT INTO doctors(firstname, surname, username, email, gender, phone, country, password, salary, date_reg, status, profile) 
                   VALUES('$firstname', '$surname', '$username', '$email', '$gender', '$phone', '$country', '$password', '0', NOW(), 'pending', 'doctor.jpg')";
 
         $result = mysqli_query($connect, $query);
@@ -74,7 +74,7 @@ if (isset($_POST['apply'])) {
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 p-4 bg-dark-subtle mt-5 rounded-4">
-                    <h5 class="text-center">Apply Now!!</h5>
+                    <h5 class="text-center">SignUp</h5>
                         <div>
                             <?php echo $show; ?>
                         </div>
@@ -138,7 +138,7 @@ if (isset($_POST['apply'])) {
                             <input type="password" name="con_pass" class="form-control"
                             autocomplete="off" placeholder="Confirm Password">
                         </div>
-                        <input type="submit" name="apply" value="Apply Now" class="btn btn-success">
+                        <input type="submit" name="apply" value="Signup" class="btn btn-success">
                         <p>I already have an account <a href="doctorlogin.php">Click here</a></p>
                     </form>
 
