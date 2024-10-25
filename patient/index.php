@@ -100,16 +100,16 @@ session_start();
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-3"></div>
-                                <div class="col-md-6 my-5 p-5 rounded-4 bg-info">
-                                    <h5 class="text-center my-2 text-white">Send A Report</h5>
+                                <div class="col-md-6 my-5 p-5 rounded-4 bg-info">   
+                                    <h5 class="text-center my-2 text-white">Enquiry</h5>
                                     <form action="" method="post">
                                         <label for="">Title</label>
-                                        <input type="text" name="title" class="form-control" placeholder="Enter Title of the report">
+                                        <input type="text" name="title" class="form-control" placeholder="Enter Title">
 
                                         <label for="">Message</label>
                                         <input type="text" name="message" class="form-control" placeholder="Enter your message"></>
 
-                                        <input type="submit" value="Send Report" class="btn btn-success my-2">
+                                        <input type="submit" value="Send" class="btn btn-success my-2">
                                     </form>
                                 </div>
                                 <div class="col-md-3"></div>
