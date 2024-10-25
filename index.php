@@ -30,7 +30,7 @@ include("include/header.php");
 
                     <h5 class="text-center">We will take care of you</h5>
                     <div class="text-center">
-                    <a href="">
+                    <a href="account.php">
                         <button class="btn btn-success p-2">Create Account!</button>
                     </a>
                     </div>

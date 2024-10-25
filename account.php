@@ -1,7 +1,9 @@
 <?php
 include("include/connection.php");
 
-if (isset($_POST['create'])) {
+$show = ""; // This will hold either the error or success message
+
+if (isset($_POST['create'])) { // Only process if the form is submitted
     $fname = $_POST['fname'];
     $sname = $_POST['sname'];
     $uname = $_POST['uname'];
@@ -12,8 +14,9 @@ if (isset($_POST['create'])) {
     $password = $_POST['pass'];
     $con_pass = $_POST['con_pass'];
 
-    $error = array();
+    $error = array(); // Array to collect error messages
 
+    // Error handling logic
     if (empty($fname)) {
         $error['ac'] = "Enter firstname";
     } else if (empty($sname)) {
@@ -30,55 +33,51 @@ if (isset($_POST['create'])) {
         $error['ac'] = "Select district";
     } else if (empty($password)) {
         $error['ac'] = "Enter password";
-    } else if ($con_pass !== $password) { // Change to strict comparison
+    } else if ($con_pass !== $password) { // Password and confirm password match check
         $error['ac'] = "Passwords do not match";
     }
 
+    // If no errors, proceed with data insertion
     if (count($error) == 0) {
-        $generatedID = generatePatientID($connect); // Call the function to get the generated ID
+        $generatedID = generatePatientID($connect); // Function to generate patient ID
 
-        // Corrected SQL query
         $query = "INSERT INTO patient(id, firstname, surname, username, email, phone, gender, district, password, date_reg, profile)
-            VALUES('$generatedID', '$fname', '$sname', '$uname', '$email', '$phone', '$gender', '$distr', '$password', NOW(), 'patient.jpg')";
+                  VALUES('$generatedID', '$fname', '$sname', '$uname', '$email', '$phone', '$gender', '$distr', '$password', NOW(), 'patient.jpg')";
 
         $res = mysqli_query($connect, $query);
 
-        // Check for errors in query execution
         if ($res) {
-            header("Location: patientlogin.php");
+            $show = "<h5 class='text-center alert alert-success'>Account created successfully! Please <a href='patientlogin.php'>login here</a>.</h5>";
         } else {
-            // Debugging output
             echo "<script>alert('Failed to insert record: " . mysqli_error($connect) . "')</script>";
         }
+    } else {
+        // If there are errors, set the error message
+        $s = $error['ac'];
+        $show = "<h5 class='text-center alert alert-danger'>$s</h5>";
     }
 }
 
-// Function to generate patient ID with reset index on a new day
+// Function to generate a patient ID with daily reset logic
 function generatePatientID($connect) {
-    // Get the current date in YYMMDD format
-    $currentDate = date('ymd');
+    $currentDate = date('ymd'); // Get current date in YYMMDD format
 
     // Query to count how many patients registered today
     $stmt = $connect->prepare("SELECT COUNT(*) as countToday FROM patient WHERE DATE(date_reg) = CURDATE()");
     $stmt->execute();
     $result = $stmt->get_result()->fetch_assoc();
 
-    // Get the count of patients for today (reset to 0 if none exist)
-    $countToday = $result['countToday'] ?? 0;
+    $countToday = $result['countToday'] ?? 0; // Count for today's registrations
 
-    // The new patient number for today (count + 1)
+    // Generate the new patient ID
     $newPatientNumber = $countToday + 1;
-
-    // Generate the patient ID (YYMMDD + newPatientNumber)
     $patientID = $currentDate . $newPatientNumber;
 
     return $patientID;
 }
-
-// Example usage of the function
-$generatedID = generatePatientID($connect);
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,6 +93,7 @@ $generatedID = generatePatientID($connect);
                 <div class="col-md-3"></div>
                 <div class="col-md-6 p-5 bg-light mt-5 rounded-4 my-2">
                     <h5 class="text-center text-info my-2">Create account</h5>
+                    <?php echo $show; ?>
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="">Firstname</label>
