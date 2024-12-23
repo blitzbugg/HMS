@@ -36,7 +36,7 @@ session_start();
                                                     <h5 class="text-white my-4">My Profile</h5>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <a href="#"><i class="fa fa-user-circle fa-3x my-4 text-white"></i></a>
+                                                    <a href="profile.php"><i class="fa fa-user-circle fa-3x my-4 text-white"></i></a>
                                                 </div>
                                             </div>
                                         </div>
