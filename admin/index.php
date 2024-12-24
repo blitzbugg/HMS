@@ -141,12 +141,20 @@ session_start();
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h5 class="my-2 fs-1">0</h5>
+                                        <?php
+                                        $in = mysqli_query($connect,"SELECT sum(amount_paid) as profit from income");
+
+                                        $row = mysqli_fetch_array($in);
+
+                                        $inc = $row['profit'];
+                                        
+                                        ?>
+                                        <h5 class="my-2 fs-1"><?php echo $inc."Rs" ?></h5>
                                         <h5>Total</h5>
                                         <h5>Income</h5>
                                     </div>
                                     <div class="col-md-4 text-center">
-                                        <a href=""><i class="fa-solid fa-indian-rupee-sign fa-2xl p-4" style="color: #ffffff;"></i></a>
+                                        <a href="income.php"><i class="fa-solid fa-indian-rupee-sign fa-2xl p-4" style="color: #ffffff;"></i></a>
                                     </div>
                                 </div>
                             </div>
