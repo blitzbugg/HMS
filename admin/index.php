@@ -72,12 +72,20 @@ session_start();
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h5 class="my-2 fs-1">0</h5>
+
+                                    <?php
+
+                                    $p = mysqli_query($connect,"SELECT * FROM patient");
+
+                                    $pp = mysqli_num_rows($p);
+
+                                    ?>
+                                        <h5 class="my-2 fs-1"><?php echo $pp ?></h5>
                                         <h5>Total</h5>
                                         <h5>Patient</h5>
                                     </div>
                                     <div class="col-md-4 text-center">
-                                        <a href=""><i class="fa-solid fa-bed fa-2xl p-4" style="color: #ffffff;"></i></a>
+                                        <a href="patient.php"><i class="fa-solid fa-bed fa-2xl p-4" style="color: #ffffff;"></i></a>
                                     </div>
                                 </div>
                             </div>
