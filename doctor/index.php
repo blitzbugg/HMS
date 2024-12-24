@@ -34,7 +34,8 @@ session_start();
     </style>
 </head>
 <body>
-    <?php include("../include/header.php"); ?>
+    <?php include("../include/header.php"); 
+    include("../include/connection.php"); ?>
 
     <div class="container-fluid">
         <div class="row">
@@ -57,12 +58,19 @@ session_start();
 
                         <!-- Total Patients Box -->
                         <div class="col-md-3 bg-success text-light rounded dashboard-box mx-2 my-2">
+                        <?php
+
+                            $p = mysqli_query($connect,"SELECT * FROM patient");
+
+                            $pp = mysqli_num_rows($p);
+
+                        ?>
                             <div>
-                                <h5 class="text-center" style="font-size: 30px;">0</h5>
+                                <h5 class="text-center" style="font-size: 30px;"><?php echo $pp; ?></h5>
                                 <h5 class="text-center">Total Patients</h5>
                             </div>
                             <div>
-                                <a href="#"><i class="fas fa-users dashboard-icon"></i></a>
+                                <a href="patient.php"><i class="fas fa-users dashboard-icon"></i></a>
                             </div>
                         </div>
 

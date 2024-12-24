@@ -96,12 +96,19 @@ session_start();
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h5 class="my-2 fs-1">0</h5>
+
+                                    <?php
+                                    $re = mysqli_query($connect,"SELECT * FROM report");
+
+                                    $ree = mysqli_num_rows($re);
+
+                                    ?>
+                                        <h5 class="my-2 fs-1"><?php echo $ree ?></h5>
                                         <h5>Total</h5>
                                         <h5>Report</h5>
                                     </div>
                                     <div class="col-md-4 text-center">
-                                        <a href=""><i class="fa-solid fa-flag fa-2xl p-4" style="color: #ffffff;"></i></a>
+                                        <a href="report.php"><i class="fa-solid fa-flag fa-2xl p-4" style="color: #ffffff;"></i></a>
                                     </div>
                                 </div>
                             </div>
