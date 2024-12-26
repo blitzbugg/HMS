@@ -109,41 +109,79 @@
                 <h3 class="text-center page-title my-4 animate__animated animate__fadeIn">Book Your Appointment</h3>
 
                 <?php
-                    $pat = $_SESSION['patient'];
-                    $sel = mysqli_query($connect,"SELECT * FROM patient WHERE username='$pat'");
-                    $row = mysqli_fetch_array($sel);
-                    
+                $pat = $_SESSION['patient'] ?? '';
+
+                if (!$pat) {
+                    echo "<script>alert('No patient session found. Please log in again.');</script>";
+                    exit;
+                }
+
+                $sel = mysqli_query($connect, "SELECT * FROM patient WHERE username='$pat'");
+
+                if (!$sel) {
+                    die("Query failed: " . mysqli_error($connect));
+                }
+
+                $row = mysqli_fetch_assoc($sel);
+
+
+                if ($row) {
                     $firstname = $row['firstname'];
                     $surname = $row['surname'];
                     $gender = $row['gender'];
                     $phone = $row['phone'];
+                } else {
+                    echo "<script>alert('Patient details not found.');</script>";
+                    exit;
+                }
 
-                    if (isset($_POST['book'])) {
-                        $date = $_POST['date'];
-                        $sym = $_POST['sym'];
+                if (isset($_POST['book'])) {
+                    // Extract patient details from $row
+                    $firstname = $row['firstname'];
+                    $surname = $row['surname'];
+                    $gender = $row['gender'];
+                    $phone = $row['phone'];
+                
+                    // Get form input values
+                    $date = $_POST['date'];
+                    $sym = $_POST['sym'];
+                
+                    // Validate symptoms
+                    if (empty($sym)) {
+                        echo "<script>alert('Please enter your symptoms');</script>";
+                    } else {
+                        // Prepare and execute the insert query
+                        $query = "INSERT INTO appointment(firstname, surname, gender, phone, appointment_date, symptoms, status, date_booked) 
+                                  VALUES ('$firstname', '$surname', '$gender', '$phone', '$date', '$sym', 'Pending', NOW())";
 
-                        if (!empty($sym)) {
-                            $query = "INSERT INTO appointment(firstname, surname, gender, phone, appointment_date, symptoms, status, date_booked) VALUES ('$firstname', '$surname', '$gender', '$phone', '$date', '$sym', 'Pending', NOW())";
-                            $res = mysqli_query($connect,$query);
 
-                            if ($res) {
-                                echo '
-                                    <div class="toast-container">
-                                        <div class="toast show animate__animated animate__fadeInRight" role="alert">
-                                            <div class="toast-header bg-success text-white">
-                                                <strong class="me-auto">Success</strong>
-                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
-                                            </div>
-                                            <div class="toast-body">
-                                                Your appointment has been successfully booked!
-                                            </div>
+                
+                        $res = mysqli_query($connect, $query);
+                
+                        if ($res) {
+                            // Success toast
+                            echo '
+                                <div class="toast-container">
+                                    <div class="toast show animate__animated animate__fadeInRight" role="alert">
+                                        <div class="toast-header bg-success text-white">
+                                            <strong class="me-auto">Success</strong>
+                                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            Your appointment has been successfully booked!
                                         </div>
                                     </div>
-                                ';
-                            }
+                                </div>
+                            ';
+                        } else {
+                            // Error handling for query failure
+                            echo "<script>alert('Failed to book the appointment: " . mysqli_error($connect) . "');</script>";
                         }
                     }
-                ?>
+                }
+                
+            ?>
+
 
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6">
