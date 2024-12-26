@@ -50,7 +50,7 @@ session_start();
                                                     <h5 class="text-white my-4">Book Appointment</h5>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <a href="#"><i class="fa fa-calendar-days fa-3x my-4 text-white"></i></a>
+                                                    <a href="appointment.php"><i class="fa fa-calendar-days fa-3x my-4 text-white"></i></a>
                                                 </div>
                                             </div>
                                         </div>
