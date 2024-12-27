@@ -77,11 +77,15 @@ session_start();
                         <!-- Total Appointments Box -->
                         <div class="col-md-3 bg-warning text-light rounded dashboard-box mx-2 my-2">
                             <div>
-                                <h5 class="text-center" style="font-size: 30px;">0</h5>
+                                <?php
+                                $app = mysqli_query($connect,"SELECT * FROM appointment WHERE status='pending'");
+                                $appoint = mysqli_num_rows($app);
+                                ?>
+                                <h5 class="text-center" style="font-size: 30px;"><?php echo $appoint; ?></h5>
                                 <h5 class="text-center">Total Appointments</h5>
                             </div>
                             <div>
-                                <a href="#"><i class="fas fa-calendar-alt dashboard-icon"></i></a>
+                                <a href="appointment.php"><i class="fas fa-calendar-alt dashboard-icon"></i></a>
                             </div>
                         </div>
                     </div>
