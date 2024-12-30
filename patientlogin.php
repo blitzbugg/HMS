@@ -11,7 +11,6 @@ if (isset($_POST['login'])) {
     } else if (empty($pass)) {
         echo "<script>alert('Enter password');</script>";
     } else {
-        // Use prepared statements to avoid SQL injection
         $stmt = $connect->prepare("SELECT * FROM patient WHERE username=? AND password=?");
         $stmt->bind_param("ss", $uname, $pass);
         $stmt->execute();
@@ -20,7 +19,7 @@ if (isset($_POST['login'])) {
         if ($res->num_rows == 1) {
             $_SESSION['patient'] = $uname;
             header("Location: patient/index.php");
-            exit(); // Always exit after a header redirect
+            exit();
         } else {
             echo "<script>alert('Invalid Account');</script>";
         }
@@ -33,35 +32,45 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Login Page</title>
+    <title>Patient Login - Healthcare Plus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/patientlogin.css">
 </head>
-<body style="background-image: url(img/admin-back.jpg); background-repeat: no-repeat; background-size: cover;">
+<body>
     <?php include("include/header.php"); ?>
 
-    <div class="container-fluid mt-5">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6 my-5 p-5 rounded-4 bg-light">
-                    <h5 class="text-center">Patient Login</h5>
-
+    <div class="container">
+        <div class="row min-vh-100 align-items-center">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <div class="login-container">
+                    <h2 class="login-title text-center">Patient Login</h2>
+                    
                     <form action="" method="post">
                         <div class="form-group">
-                            <label for="">Username</label>
-                            <input type="text" name="uname" class="form-control" placeholder="Enter Username" required>
+                            <label>Username</label>
+                            <input type="text" name="uname" class="form-control" 
+                                   placeholder="Enter your username" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="">Password</label>
-                            <input type="password" name="pass" class="form-control" placeholder="Enter Password" required>
+                            <label>Password</label>
+                            <input type="password" name="pass" class="form-control" 
+                                   placeholder="Enter your password" required>
                         </div>
-                        <input type="submit" name="login" class="btn btn-info my-3" value="Login">
-                        <p>I don't have an account <a href="account.php">Click here.</a></p>
+
+                        <button type="submit" name="login" class="btn btn-login">
+                            Login to Dashboard
+                        </button>
+
+                        <div class="signup-link">
+                            <p>Don't have an account? <a href="account.php">Sign up here</a></p>
+                        </div>
                     </form>
                 </div>
-                <div class="col-md-3"></div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
