@@ -1,0 +1,98 @@
+:root {
+    --primary-color: #2C5282;
+    --secondary-color: #4299E1;
+    --accent-color: #90CDF4;
+}
+
+body {
+    background: linear-gradient(rgba(44, 82, 130, 0.85), rgba(44, 82, 130, 0.85)), 
+                url(img/admin-back.jpg) center/cover no-repeat fixed;
+    min-height: 100vh;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem !important;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-container img {
+    max-width: 150px;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.login-container img:hover {
+    transform: scale(1.05);
+}
+
+.form-group label {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.btn-login {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.btn-login:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
+}
+
+.alert {
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-danger {
+    background-color: #FED7D7;
+    border-color: #FEB2B2;
+    color: #9B2C2C;
+}
+
+/* Form field animation */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-control::placeholder {
+    color: #A0AEC0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus::placeholder {
+    opacity: 0.5;
+    transform: translateX(10px);
+}
