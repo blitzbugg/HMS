@@ -74,7 +74,7 @@
         <div class="container-fluid">
             <a class="navbar-brand text-white fs-4 fw-bold" href="./index.php">
                 <img src="https://t4.ftcdn.net/jpg/05/75/22/77/240_F_575227735_ZjAc0cnqvCwzsfmsuEuKUW847J0JIGXU.jpg" alt="Logo" width="30" height="30" class="d-inline-block">
-                Hospital Management System
+                HealthCare Plus
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
