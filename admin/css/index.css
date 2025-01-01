@@ -1,0 +1,108 @@
+:root {
+    --primary-dark: #2C5282;
+    --primary-light: #4299E1;
+    --success: #48BB78;
+    --warning: #F6AD55;
+    --danger: #F56565;
+    --info: #4299E1;
+}
+
+body {
+    background-color: #F7FAFC;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-title {
+    color: var(--primary-dark);
+    font-weight: 600;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid #E2E8F0;
+    margin-bottom: 2rem;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.icon-container i {
+    font-size: 2.5rem;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .icon-container i {
+    transform: scale(1.1);
+}
+
+/* Card specific colors */
+.card.admin-card { background: linear-gradient(135deg, #48BB78, #38A169); }
+.card.doctor-card { background: linear-gradient(135deg, #4299E1, #2B6CB0); }
+.card.patient-card { background: linear-gradient(135deg, #F6AD55, #DD6B20); }
+.card.report-card { background: linear-gradient(135deg, #F56565, #C53030); }
+.card.request-card { background: linear-gradient(135deg, #F6AD55, #DD6B20); }
+.card.income-card { background: linear-gradient(135deg, #48BB78, #38A169); }
+
+/* Animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.col-md-3 {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.col-md-3:nth-child(1) { animation-delay: 0.1s; }
+.col-md-3:nth-child(2) { animation-delay: 0.2s; }
+.col-md-3:nth-child(3) { animation-delay: 0.3s; }
+.col-md-3:nth-child(4) { animation-delay: 0.4s; }
+.col-md-3:nth-child(5) { animation-delay: 0.5s; }
+.col-md-3:nth-child(6) { animation-delay: 0.6s; }
+
+/* Link styling */
+.card a {
+    color: white;
+    text-decoration: none;
+}
+
+.card a:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
