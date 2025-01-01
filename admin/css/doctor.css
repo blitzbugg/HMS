@@ -1,0 +1,104 @@
+:root {
+    --primary: #2C5282;
+    --secondary: #4299E1;
+    --info: #63B3ED;
+    --background: #F7FAFC;
+    --text: #2D3748;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+}
+
+/* Title Styles */
+h5.text-center {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #E2E8F0;
+}
+
+/* Table Styles */
+.table-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    padding: 1rem;
+    margin: 1rem;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: #F8FAFC;
+    color: var(--primary);
+    font-weight: 600;
+    border-top: none;
+    padding: 1rem;
+    white-space: nowrap;
+}
+
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+    color: var(--text);
+}
+
+.table tr:hover {
+    background-color: #F8FAFC;
+}
+
+/* Button Styles */
+.btn-info {
+    background-color: var(--info);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-info:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+}
+
+/* Status Badge */
+.badge-approved {
+    background-color: #48BB78;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-container {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .table-container {
+        margin: 0;
+        border-radius: 0;
+    }
+}
