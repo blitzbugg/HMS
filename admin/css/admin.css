@@ -1,0 +1,112 @@
+:root {
+    --primary: #2C5282;
+    --secondary: #4299E1;
+    --success: #48BB78;
+    --danger: #F56565;
+    --background: #F7FAFC;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title Styles */
+.text-center {
+    color: var(--primary);
+    font-weight: 600;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E2E8F0;
+}
+
+/* Table Styles */
+.table {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #f8f9fa;
+    color: var(--primary);
+    font-weight: 600;
+    border-top: none;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Form Styles */
+.form-group label {
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    border-color: var(--danger);
+}
+
+.btn-danger:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(245, 101, 101, 0.2);
+}
+
+.btn-success {
+    background-color: var(--success);
+    border-color: var(--success);
+}
+
+.btn-success:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(72, 187, 120, 0.2);
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 8px;
+    border: none;
+    margin: 1rem 0;
+}
+
+/* Container Styles */
+.col-md-6 {
+    padding: 15px;
+}
+
+.col-md-6:first-child {
+    border-right: 1px solid #E2E8F0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.row {
+    animation: fadeIn 0.5s ease forwards;
+}
