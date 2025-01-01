@@ -1,0 +1,48 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+.dashboard-header {
+    background: linear-gradient(90deg, #0062cc, #6610f2);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.dashboard-box {
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+.dashboard-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.dashboard-box h5 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.dashboard-icon {
+    font-size: 3rem;
+    color: white;
+    margin-top: 10px;
+}
+.dashboard-box.bg-info {
+    background: linear-gradient(90deg, #17a2b8, #117a8b);
+    color: white;
+}
+.dashboard-box.bg-success {
+    background: linear-gradient(90deg, #28a745, #1e7e34);
+    color: white;
+}
+.dashboard-box.bg-warning {
+    background: linear-gradient(90deg, #ffc107, #e0a800);
+    color: white;
+}

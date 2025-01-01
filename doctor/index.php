@@ -11,27 +11,7 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Add Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        .dashboard-box {
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px;
-            transition: transform 0.3s ease-in-out;
-        }
-        .dashboard-box:hover {
-            transform: scale(1.05);
-        }
-        .dashboard-box h5 {
-            font-size: 22px;
-            font-weight: bold;
-        }
-        .dashboard-icon {
-            font-size: 3rem;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <?php include("../include/header.php"); 
@@ -43,50 +23,49 @@ session_start();
                 <?php include("sidenav.php"); ?>
             </div>
             <div class="col-md-10">
-                <div class="container-fluid">
-                    <h5 class="my-3">Doctor's Dashboard</h5>
-                    <div class="row">
-                        <!-- My Profile Box -->
-                        <div class="col-md-3 bg-info text-light rounded dashboard-box mx-2 my-2">
-                            <div>
-                                <h5>My Profile</h5>
-                            </div>
-                            <div>
-                                <a href="profile.php"><i class="fas fa-user-circle dashboard-icon"></i></a>
-                            </div>
-                        </div>
+                <div class="dashboard-header my-4">
+                    <h4>Welcome to the Doctor's Dashboard</h4>
+                    <p>Manage your profile, patients, and appointments effectively.</p>
+                </div>
 
-                        <!-- Total Patients Box -->
-                        <div class="col-md-3 bg-success text-light rounded dashboard-box mx-2 my-2">
+                <div class="row">
+                    <!-- My Profile Box -->
+                    <div class="col-md-4 my-2">
+                        <div class="dashboard-box bg-info">
+                            <h5>My Profile</h5>
+                            <a href="profile.php">
+                                <i class="fas fa-user-circle dashboard-icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Total Patients Box -->
+                    <div class="col-md-4 my-2">
                         <?php
-
-                            $p = mysqli_query($connect,"SELECT * FROM patient");
-
+                            $p = mysqli_query($connect, "SELECT * FROM patient");
                             $pp = mysqli_num_rows($p);
-
                         ?>
-                            <div>
-                                <h5 class="text-center" style="font-size: 30px;"><?php echo $pp; ?></h5>
-                                <h5 class="text-center">Total Patients</h5>
-                            </div>
-                            <div>
-                                <a href="patient.php"><i class="fas fa-users dashboard-icon"></i></a>
-                            </div>
+                        <div class="dashboard-box bg-success">
+                            <h5><?php echo $pp; ?></h5>
+                            <p>Total Patients</p>
+                            <a href="patient.php">
+                                <i class="fas fa-users dashboard-icon"></i>
+                            </a>
                         </div>
+                    </div>
 
-                        <!-- Total Appointments Box -->
-                        <div class="col-md-3 bg-warning text-light rounded dashboard-box mx-2 my-2">
-                            <div>
-                                <?php
-                                $app = mysqli_query($connect,"SELECT * FROM appointment WHERE status='pending'");
-                                $appoint = mysqli_num_rows($app);
-                                ?>
-                                <h5 class="text-center" style="font-size: 30px;"><?php echo $appoint; ?></h5>
-                                <h5 class="text-center">Total Appointments</h5>
-                            </div>
-                            <div>
-                                <a href="appointment.php"><i class="fas fa-calendar-alt dashboard-icon"></i></a>
-                            </div>
+                    <!-- Total Appointments Box -->
+                    <div class="col-md-4 my-2">
+                        <?php
+                            $app = mysqli_query($connect, "SELECT * FROM appointment WHERE status='pending'");
+                            $appoint = mysqli_num_rows($app);
+                        ?>
+                        <div class="dashboard-box bg-warning">
+                            <h5><?php echo $appoint; ?></h5>
+                            <p>Total Appointments</p>
+                            <a href="appointment.php">
+                                <i class="fas fa-calendar-alt dashboard-icon"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
