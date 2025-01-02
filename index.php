@@ -18,7 +18,7 @@
                 <a href="index.php">Home</a>
                 <a href="adminlogin.php">Admin</a>
                 <a href="doctorlogin.php">Doctor</a>
-                <a href="account.php">Patient</a>
+                <a href="patientlogin.php">Patient</a>
             </div>
         </div>
     </nav>
