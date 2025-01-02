@@ -25,28 +25,6 @@ session_start();
             <div class="col-md-10">
                 <h4 class="dashboard-title">Admin Dashboard</h4>
                 <div class="row">
-                    <!-- Admin Card -->
-                    <div class="col-md-3 mb-4">
-                        <div class="card admin-card text-white h-100">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                        <?php
-                                            $ad = mysqli_query($connect,"SELECT * FROM admin");
-                                            $num = mysqli_num_rows($ad);
-                                        ?>
-                                        <h5 class="stat-number"><?php echo $num; ?></h5>
-                                        <p class="stat-label">Total Admin</p>
-                                    </div>
-                                    <div class="col-4 icon-container">
-                                        <a href="admin.php">
-                                            <i class="fas fa-hospital-user"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Doctor Card -->
                     <div class="col-md-3 mb-4">
