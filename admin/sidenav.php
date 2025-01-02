@@ -92,10 +92,6 @@
             <i class="fas fa-chart-line"></i>
             Dashboard
         </a>
-        <a href="admin.php" class="nav-item">
-            <i class="fas fa-hospital-user"></i>
-            Admins
-        </a>
         <a href="doctor.php" class="nav-item">
             <i class="fas fa-user-md"></i>
             Doctors
