@@ -1,0 +1,33 @@
+.invoice-header {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #dee2e6;
+}
+.table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 20px 0;
+}
+.table thead {
+    background-color: #f8f9fa;
+}
+.table th {
+    font-weight: 600;
+    color: #495057;
+}
+.table td, .table th {
+    vertical-align: middle;
+    padding: 12px;
+}
+.btn-view {
+    padding: 6px 20px;
+    border-radius: 20px;
+}
+.no-data {
+    padding: 30px;
+    text-align: center;
+    color: #6c757d;
+}
