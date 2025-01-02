@@ -76,9 +76,6 @@ if (isset($_POST['login'])) {
                             Login to Dashboard
                         </button>
 
-                        <div class="signup-link">
-                            <p>Don't have an account? <a href="apply.php">Sign up</a></p>
-                        </div>
                     </form>
                 </div>
             </div>
