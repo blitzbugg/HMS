@@ -22,6 +22,18 @@
                 </div>
                 <div class="col-md-10">
                     <h5 class="text-center">Total Doctors</h5>
+
+                    <!-- Navigation Card for Adding New Doctor -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Add a New Doctor</h5>
+                            <p class="card-text">Click the button below to add a new doctor to the system.</p>
+                            <a href="apply.php" class="btn btn-primary">
+                                <i class="fas fa-user-plus mr-1"></i> Add New Doctor
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="table-container">
                         <?php
                         $query = "SELECT * FROM doctors WHERE status='Approved' ORDER BY date_reg ASC";
@@ -39,7 +51,7 @@
                                     <th>Email</th>
                                     <th>Gender</th>
                                     <th>Phone</th>
-                                    <th>Country</th>
+                                    <th>department</th>
                                     <th>Salary</th>
                                     <th>Date Registered</th>
                                     <th>Actions</th>
@@ -64,7 +76,7 @@
                                 <td>".$row['email']."</td>
                                 <td>".$row['gender']."</td>
                                 <td>".$row['phone']."</td>
-                                <td>".$row['country']."</td>
+                                <td>".$row['department']."</td>
                                 <td>₹".$row['salary']."</td>
                                 <td>".date('d M Y', strtotime($row['date_reg']))."</td>
                                 <td>

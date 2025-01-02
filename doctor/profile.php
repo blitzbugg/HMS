@@ -90,8 +90,8 @@ session_start();
                                                 <td><?php echo $row['gender']; ?></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="fas fa-globe detail-icon"></i>Country</td>
-                                                <td><?php echo $row['country']; ?></td>
+                                                <td><i class="fas fa-globe detail-icon"></i>department</td>
+                                                <td><?php echo $row['department']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td><i class="fas fa-dollar-sign detail-icon"></i>Salary</td>

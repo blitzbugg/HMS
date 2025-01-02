@@ -16,7 +16,7 @@ $output .= "
     <th>Email</th>
     <th>Gender</th>
     <th>Phone</th>
-    <th>Country</th>
+    <th>department</th>
     <th>Date Registered</th>
     <th>Actions</th>
 </tr>";
@@ -39,7 +39,7 @@ while ($row = mysqli_fetch_array($res)) {
     <td>".$row['email']."</td>
     <td>".$row['gender']."</td>
     <td>".$row['phone']."</td>
-    <td>".$row['country']."</td>
+    <td>".$row['department']."</td>
     <td>".$row['date_reg']."</td>
     <td>
         <div class='col-md-12'>

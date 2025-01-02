@@ -101,7 +101,7 @@ CREATE TABLE `doctors` (
   `email` varchar(100) NOT NULL,
   `gender` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
-  `country` varchar(100) NOT NULL,
+  `department` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `salary` varchar(100) NOT NULL,
   `date_reg` varchar(100) NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE `doctors` (
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`id`, `firstname`, `surname`, `username`, `email`, `gender`, `phone`, `country`, `password`, `salary`, `date_reg`, `status`, `profile`) VALUES
+INSERT INTO `doctors` (`id`, `firstname`, `surname`, `username`, `email`, `gender`, `phone`, `department`, `password`, `salary`, `date_reg`, `status`, `profile`) VALUES
 (1, 'John', 'Mathew', 'jom', 'john@gmail.com', 'Male', '9496095846', 'India', '1234', '2000', '2024-10-22 19:06:20', 'Approved', 'john-doc.jpeg'),
 (2, 'Jins', 'Joseph', 'jin', 'jin@gmail.com', 'Male', '89877865432', 'Russia', 'abcd', '10000', '2024-10-24 12:48:11', 'Approved', 'doctor.jpg');
 
