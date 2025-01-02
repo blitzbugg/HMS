@@ -8,32 +8,34 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/profile.css">
 </head>
 
-<body>
+<body class="bg-light">
     <?php
     include("../include/header.php");
     include("../include/connection.php");
     ?>
 
-    <div class="container-fluid">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-2">
-                    <?php
-                    include("sidenav.php");
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-md-2">
+                <?php
+                include("sidenav.php");
 
-                    $patient = $_SESSION['patient'];
-                    $query = "SELECT * FROM patient WHERE username='$patient'";
-                    $res = mysqli_query($connect, $query);
-                    $row = mysqli_fetch_array($res);
-                    ?>
-                </div>
+                $patient = $_SESSION['patient'];
+                $query = "SELECT * FROM patient WHERE username='$patient'";
+                $res = mysqli_query($connect, $query);
+                $row = mysqli_fetch_array($res);
+                ?>
+            </div>
 
-                <div class="col-md-10">
-                    <div class="row">
-                        <!-- Profile Picture Section -->
-                        <div class="col-md-6">
+            <div class="col-md-10">
+                <div class="row">
+                    <!-- Profile Picture and Details Section -->
+                    <div class="col-md-6">
+                        <div class="profile-section">
                             <?php
                             $profileMessage = "";
                             $profileClass = "";
@@ -43,7 +45,7 @@ session_start();
 
                                 if (empty($img)) {
                                     $profileMessage = "No image selected!";
-                                    $profileClass = "bg-danger bg-gradient";
+                                    $profileClass = "alert-danger";
                                 } else {
                                     $query = "UPDATE patient SET profile='$img' WHERE username='$patient'";
                                     $res = mysqli_query($connect, $query);
@@ -51,62 +53,77 @@ session_start();
                                     if ($res) {
                                         move_uploaded_file($_FILES['img']['tmp_name'], "img/$img");
                                         $profileMessage = "Profile picture updated successfully";
-                                        $profileClass = "bg-success bg-gradient";
+                                        $profileClass = "alert-success";
                                     } else {
                                         $profileMessage = "Failed to update profile picture";
-                                        $profileClass = "bg-danger bg-gradient";
+                                        $profileClass = "alert-danger";
                                     }
                                 }
                             }
                             ?>
 
-                            <h5>My Profile</h5>
-                            <h6 class="<?php echo $profileClass; ?>"><?php echo $profileMessage; ?></h6>
-                            <form action="profile.php" method="post" enctype="multipart/form-data">
-                                <?php
-                                echo "<img src='img/" . $row['profile'] . "' class='col-md-12 h-50 w-50'>";
-                                ?>
-                                <input type="file" name="img" class="form-control my-2">
-                                <input type="submit" name="upload" class="btn btn-primary my-2" value="Update Profile">
-                            </form>
+                            <h3 class="text-center mb-4"><i class="fas fa-user-circle me-2"></i>My Profile</h3>
+                            
+                            <?php if($profileMessage): ?>
+                                <div class="alert alert-custom <?php echo $profileClass; ?>">
+                                    <?php echo $profileMessage; ?>
+                                </div>
+                            <?php endif; ?>
 
-                            <table class="table table-bordered">
+                            <div class="profile-picture">
+                                <?php
+                                echo "<img src='img/" . $row['profile'] . "' class='img-fluid'>";
+                                ?>
+                                <form action="profile.php" method="post" enctype="multipart/form-data" class="upload-overlay">
+                                    <div class="input-group">
+                                        <input type="file" name="img" class="form-control">
+                                        <button type="submit" name="upload" class="btn btn-primary btn-custom">
+                                            <i class="fas fa-upload me-2"></i>Update
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <table class="table details-table">
                                 <tr>
-                                    <th colspan="2" class="text-center">My Details</th>
+                                    <th colspan="2" class="text-center bg-primary text-white">Personal Information</th>
                                 </tr>
                                 <tr>
-                                    <td>First name</td>
+                                    <td><i class="fas fa-user me-2"></i>First Name</td>
                                     <td><?php echo $row['firstname']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Surname</td>
+                                    <td><i class="fas fa-user me-2"></i>Surname</td>
                                     <td><?php echo $row['surname']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Username</td>
+                                    <td><i class="fas fa-at me-2"></i>Username</td>
                                     <td><?php echo $row['username']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Email</td>
+                                    <td><i class="fas fa-envelope me-2"></i>Email</td>
                                     <td><?php echo $row['email']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Phone Number</td>
+                                    <td><i class="fas fa-phone me-2"></i>Phone Number</td>
                                     <td><?php echo $row['phone']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Gender</td>
+                                    <td><i class="fas fa-venus-mars me-2"></i>Gender</td>
                                     <td><?php echo $row['gender']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>District</td>
+                                    <td><i class="fas fa-map-marker-alt me-2"></i>District</td>
                                     <td><?php echo $row['district']; ?></td>
                                 </tr>
                             </table>
                         </div>
+                    </div>
 
-                        <!-- Change Username Section -->
-                        <div class="col-md-6">
+                    <!-- Account Settings Section -->
+                    <div class="col-md-6">
+                        <!-- Username Change Form -->
+                        <div class="form-section">
                             <?php
                             $unameMessage = "";
                             $unameClass = "";
@@ -116,7 +133,7 @@ session_start();
 
                                 if (empty($uname)) {
                                     $unameMessage = "Username cannot be empty";
-                                    $unameClass = "bg-danger bg-gradient";
+                                    $unameClass = "alert-danger";
                                 } else {
                                     $query = "UPDATE patient SET username='$uname' WHERE username='$patient'";
                                     $res = mysqli_query($connect, $query);
@@ -124,24 +141,36 @@ session_start();
                                     if ($res) {
                                         $_SESSION['patient'] = $uname;
                                         $unameMessage = "Username updated successfully";
-                                        $unameClass = "bg-success bg-gradient";
+                                        $unameClass = "alert-success";
                                     } else {
-                                        $unameMessage = "Failed to update username. Please try again.";
-                                        $unameClass = "bg-danger bg-gradient";
+                                        $unameMessage = "Failed to update username";
+                                        $unameClass = "alert-danger";
                                     }
                                 }
                             }
                             ?>
 
-                            <h5 class="text-center">Change Username</h5>
-                            <h3 class="<?php echo $unameClass; ?> text-white"><?php echo $unameMessage; ?></h3>
-                            <form action="profile.php" method="post">
-                                <label for="">Enter New Username</label>
-                                <input type="text" name="uname" class="form-control" placeholder="Enter new username">
-                                <input type="submit" name="update_username" value="Update Username" class="btn btn-primary my-2">
-                            </form>
+                            <h3 class="text-center mb-4"><i class="fas fa-user-edit me-2"></i>Change Username</h3>
+                            
+                            <?php if($unameMessage): ?>
+                                <div class="alert alert-custom <?php echo $unameClass; ?>">
+                                    <?php echo $unameMessage; ?>
+                                </div>
+                            <?php endif; ?>
 
-                            <!-- Change Password Section -->
+                            <form action="profile.php" method="post">
+                                <div class="form-group">
+                                    <label><i class="fas fa-user me-2"></i>New Username</label>
+                                    <input type="text" name="uname" class="form-control" placeholder="Enter new username">
+                                </div>
+                                <button type="submit" name="update_username" class="btn btn-primary btn-custom w-100 mt-3">
+                                    <i class="fas fa-save me-2"></i>Update Username
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Password Change Form -->
+                        <div class="form-section">
                             <?php
                             $passMessage = "";
                             $passClass = "";
@@ -155,46 +184,57 @@ session_start();
                                 $re = mysqli_query($connect, $q);
                                 $row = mysqli_fetch_array($re);
 
-                                $errors = [];
-
                                 if (empty($old)) {
-                                    $errors['pass'] = "Old password is required";
+                                    $passMessage = "Old password is required";
+                                    $passClass = "alert-danger";
                                 } elseif (empty($new)) {
-                                    $errors['pass'] = "Please enter a new password";
+                                    $passMessage = "New password is required";
+                                    $passClass = "alert-danger";
                                 } elseif ($conf != $new) {
-                                    $errors['pass'] = "Passwords do not match";
+                                    $passMessage = "Passwords do not match";
+                                    $passClass = "alert-danger";
                                 } elseif ($old != $row['password']) {
-                                    $errors['pass'] = "Old password is incorrect";
-                                }
-
-                                if (!empty($errors)) {
-                                    $passMessage = $errors['pass'];
-                                    $passClass = "bg-danger bg-gradient";
+                                    $passMessage = "Incorrect old password";
+                                    $passClass = "alert-danger";
                                 } else {
                                     $query = "UPDATE patient SET password='$new' WHERE username='$patient'";
                                     $res = mysqli_query($connect, $query);
 
                                     if ($res) {
                                         $passMessage = "Password updated successfully";
-                                        $passClass = "bg-success bg-gradient";
+                                        $passClass = "alert-success";
                                     } else {
-                                        $passMessage = "Failed to update password. Please try again.";
-                                        $passClass = "bg-danger bg-gradient";
+                                        $passMessage = "Failed to update password";
+                                        $passClass = "alert-danger";
                                     }
                                 }
                             }
                             ?>
 
-                            <h5 class="my-4 text-center">Change Password</h5>
-                            <h3 class="<?php echo $passClass; ?> text-white"><?php echo $passMessage; ?></h3>
+                            <h3 class="text-center mb-4"><i class="fas fa-lock me-2"></i>Change Password</h3>
+                            
+                            <?php if($passMessage): ?>
+                                <div class="alert alert-custom <?php echo $passClass; ?>">
+                                    <?php echo $passMessage; ?>
+                                </div>
+                            <?php endif; ?>
+
                             <form action="" method="post">
-                                <label for="">Old Password</label>
-                                <input type="password" name="old_pass" class="form-control" placeholder="Enter old password">
-                                <label for="">New Password</label>
-                                <input type="password" name="new_pass" class="form-control" placeholder="Enter new password">
-                                <label for="">Confirm Password</label>
-                                <input type="password" name="con_pass" class="form-control" placeholder="Confirm password">
-                                <input type="submit" name="change_password" value="Change Password" class="btn btn-primary">
+                                <div class="form-group">
+                                    <label><i class="fas fa-lock me-2"></i>Old Password</label>
+                                    <input type="password" name="old_pass" class="form-control" placeholder="Enter old password">
+                                </div>
+                                <div class="form-group">
+                                    <label><i class="fas fa-key me-2"></i>New Password</label>
+                                    <input type="password" name="new_pass" class="form-control" placeholder="Enter new password">
+                                </div>
+                                <div class="form-group">
+                                    <label><i class="fas fa-check-circle me-2"></i>Confirm Password</label>
+                                    <input type="password" name="con_pass" class="form-control" placeholder="Confirm new password">
+                                </div>
+                                <button type="submit" name="change_password" class="btn btn-primary btn-custom w-100 mt-3">
+                                    <i class="fas fa-save me-2"></i>Change Password
+                                </button>
                             </form>
                         </div>
                     </div>
